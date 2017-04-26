@@ -5,6 +5,7 @@ ACCOUNT = ""
 PASSWORD = ""
 
 ADDRESS_MAP = {
-    "RECEIVER": "FB_CHAT_ID",
-    "root": "1112223334",
+    "RECEIVER": ("MESSANGER_CHAT_ID", "TYPE"),
+    "root": ("MESSANGER_GROUP_ID", "group"),
+    "user": ("MESSANGER_USER_ID", "user"),
 }

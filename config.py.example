@@ -1,0 +1,10 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+
+ACCOUNT = ""
+PASSWORD = ""
+
+ADDRESS_MAP = {
+    "RECEIVER": "FB_CHAT_ID",
+    "root": "1112223334",
+}

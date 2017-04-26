@@ -4,6 +4,7 @@
 import sys
 import config
 import email
+import email.header
 import fbchat
 
 EX_TEMPFAIL=75
@@ -20,14 +21,22 @@ else:
 
 mail = ''.join(sys.stdin.readlines())
 parser = email.parser.Parser()
+
 content = parser.parsestr(mail)
+mailfrom = content["From"]
+subject = email.header.decode_header(content["Subject"])[0][0]
+data = """
+來自: {mailfrom}
+主旨: {subject}
+
+""".format(mailfrom = mailfrom, subject = subject)
 
 if content.is_multipart():
     for payload in content.get_payload():
         if payload.get_content_type() == 'text/plain':
-            data = payload.get_payload(decode=True)
+            data += payload.get_payload(decode = True)
 elif content.get_content_type() == 'text/plain':
-    data = content.get_payload(decode=True)
+    data += content.get_payload(decode = True)
 
 client = fbchat.Client(config.ACCOUNT, config.PASSWORD, False)
 sent = client.send(msggrp[0], data, msggrp[1])

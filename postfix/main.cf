@@ -1,0 +1,1 @@
+header_checks = regexp:$config_directory/header_checks

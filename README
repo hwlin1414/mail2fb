@@ -1,0 +1,15 @@
+installation(first time):
+    1. pip install -r requirements.txt
+    2. move config.py.example -> config.py
+    3. edit config.py
+    4. edit postfix/master.cf
+    5. edit postfix/main.cf
+    6. reload postfix
+
+add email-messanger binding:
+    1. edit config.py
+    2. add mail address to /etc/aliases
+    3. command `newaliases`
+    4. edit postfix/header_checks
+    5. reload postfix
+

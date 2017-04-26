@@ -1,0 +1,2 @@
+mail2fb   unix  -       n       n       -       -       pipe
+  flags=FR user=nobody argv=/root/mail2fb/main.py ${user}
